@@ -1,1 +1,1 @@
-# Book Store
+# Bike store Variant Configurator
