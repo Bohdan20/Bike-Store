@@ -1,0 +1,383 @@
+.final-configuration-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bike-price-container {
+    flex: 1;
+    padding: 2rem 4rem;
+    border-right: .25rem solid rgb(250, 249, 249);
+}
+
+.name-image {
+    display: flex;
+}
+
+.bike-name {
+    flex: 1;
+}
+
+.bike-image {
+    flex: 2;
+}
+
+.change-model {
+    flex: 1;
+}
+
+.bike-name > h1 {
+    color: rgb(82, 191, 224);
+    font-size: 3em;
+    margin: 0;
+    
+}
+
+.change-model-btn {
+    margin-top: 1.3rem;
+    background: none;
+    padding: .2rem .8rem;
+    color: rgb(82, 191, 224);
+    border: .05rem solid rgb(82, 191, 224);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.change-model-btn:focus {
+    outline: none;
+}
+
+.quantity-price,
+.price-discount,
+.net-price {
+    padding: 1rem 0 .3rem 0;
+    display: flex;
+    border-bottom: .25rem solid rgb(250, 249, 249);
+} 
+
+.row-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-text .bike-base-price,
+.row-prices .bike-base-price-number {
+    margin-top: .7rem;
+} 
+
+.row-change {
+    padding-right:.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.row-change .quantity {
+    flex: 1;
+}
+
+.row-change .quantity .bike-quantity {
+    max-width: 100px;
+    min-width: 70px;
+    display: inherit;
+}
+
+.row-change .quantity .bike-quantity input {
+    max-width: 100px;
+    min-width: 50px;
+    text-align: center;
+    border: none;
+    background: transparent;
+}
+
+.row-text,
+.row-change {
+    flex: 1.2;
+}
+
+.row-prices {
+    flex: 1;
+}
+
+.row-prices,
+.row-change {
+    text-align: center;
+    position: relative;
+}
+
+.number {
+    background-color: rgb(239, 239, 239);
+    margin-bottom: .8rem;
+}
+
+.price-discount .row-change {
+    flex-direction: column;
+    align-items: left;
+}
+
+.price-discount .row-change div {
+    width: 100%;
+    flex: 1;
+}
+
+.quantity-price .row-change .warning {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin-top: .8rem;
+}
+
+.price {
+    margin-bottom: .8rem;
+}
+
+.accesory-quantity-price {
+    flex: 1;
+    padding-right: .3rem;
+}
+
+.quantity,
+.discount {
+    display: flex;
+    background-color: rgb(247, 245, 245);
+}
+
+.quantity > .bike-quantity,
+.discount > .discount-amount {
+    flex: 2.4;
+}
+
+.bike-quantity,
+.discount-amount {
+    text-align: center;
+    border-right: .05rem solid grey;
+    border-left: .05rem solid grey;
+}
+
+.discount-amount {
+    border: none;
+    text-align: left;
+    max-width: 200px;
+}
+
+.discount-amount .form-control {
+    height: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.discount-amount .form-control:focus {
+    outline: none;
+}
+
+.discount-amount span {
+    position: absolute;
+    right: .3em;
+    bottom: .05rem;
+}
+
+.warning {
+    font-size: .74em;
+    margin-top: 0;
+    max-width: 200px;
+    text-align: center;
+    color: rgb(251, 8, 8);
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity i,
+.discount i {
+    color: rgb(223, 205, 205);
+}
+
+.quantity,
+.discount {
+    font-size: 15px;
+}
+
+.price-discount .row-change .discount {
+    margin-top: 2.3rem;
+}
+
+.order-information {
+    padding: 0 4rem;
+}
+
+.form-group {
+    padding: 4px 0;
+    box-sizing: border-box;
+}
+
+.form-group label {
+    display: block;
+    padding: 4px 0;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+textarea {
+    overflow: hidden;
+    word-wrap: break-word;
+    resize: vertical;
+    height: 134px;
+    font: inherit;
+}
+
+.form-group input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.25);
+}
+
+.create-sales-order {
+    margin-top: .5rem;
+}
+
+.create-sales-order span {
+    vertical-align: text-bottom;
+}
+
+.btn-container {
+    display: flex;
+    margin: 1.5rem 0;
+    color: rgb(49, 148, 179);
+}
+
+.btn-container > .save-configuration {
+    flex: 1.5;
+    padding: 0.8rem 1.6rem;
+    color: rgb(49, 148, 179);
+    text-transform: uppercase;
+    background: none;
+    border: .1rem solid rgb(49, 148, 179);
+    font-size: 1em;
+}
+
+.btn-container > .display-details {
+    flex: 1;
+    padding: 0.8rem 1.6rem;
+    color: rgb(49, 148, 179);
+    text-transform: uppercase;
+    background: none;
+    border: none;
+}
+
+.btn-container > .save-configuration:focus,
+.btn-container > .display-details:focus {
+    outline: none;
+}
+
+.btn-container > .save-configuration:hover,
+.btn-container > .display-details:hover {
+    cursor: pointer;
+}
+
+.selected-details-container {
+    flex: 1;
+}
+
+.final-configuration {
+    padding: 1rem 0;
+    text-align: center;
+    color: rgb(82, 191, 224);
+    font-size: 1.2em;
+    font-weight: 500;
+    border-bottom: .25rem solid rgb(250, 249, 249);
+}
+
+.final-selected-options,
+.final-selected-accessories {
+    padding: 1.4rem 3.2rem 1.4rem 2.4rem;
+    border-bottom: .25rem solid rgb(250, 249, 249);
+}
+
+.final-selected-accessories {
+    border-bottom: none;
+}
+
+.selected-options-header,
+.selected-accessories-header {
+    display: flex;
+    color: rgb(82, 191, 224);
+}
+
+.selected-options-header .selected-options,
+.selected-accessories-header .selected-accessories {
+    flex: 1;
+}
+
+.selected-options-header .edit-button-container,
+.selected-accessories-header .edit-button-container {
+    flex: 1;
+    text-align: right;
+}
+
+.edit-button-container > .edit-btn {
+    color: rgb(82, 191, 224);
+    padding: .4rem 1.2rem;
+    border: .05rem solid rgb(82, 191, 224);
+    border-radius: 1rem;
+    background: none;
+}
+
+.edit-button-container > .edit-btn:hover {
+    cursor: pointer;
+}
+
+.edit-button-container > .edit-btn:focus {
+    outline: none;
+}
+
+.selected-option,
+.selected-accessory {
+    display: flex;
+    margin-top: 1rem;
+    border-bottom: .125rem solid rgb(250, 249, 249);
+}
+
+.selected-option .selected-option-name,
+.selected-accessory .selected-accessory-name {
+    flex: 1;
+}
+
+.selected-option .selected-option-description {
+    flex: 2;
+}
+
+.selected-option .selected-option-icon,
+.selected-accessory .selected-accessory-quantity {
+    text-align: right;
+    color: rgb(82, 191, 224);
+}
+
+.order-information-container {
+    display: flex;
+}
+
+.order-information-container > div {
+    flex: 1;
+}
+
+@media only screen and (max-width: 1200px) {
+    .final-configuration-container,
+    .order-information-container {        
+        flex-direction: column;
+    }
+}

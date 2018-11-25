@@ -1,0 +1,48 @@
+<div class="container" [ngStyle]="{'background-image': backImgSrc}">
+  <div>
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" formControlName="Email">
+      </div>
+
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" formControlName="FirstName">
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" formControlName="LastName">
+      </div>
+
+      <div class="form-group">
+        <label for="userName">User Name:</label>
+        <input type="text" class="form-control" formControlName="UserName">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" formControlName="Password">
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm password:</label>
+        <input type="password" class="form-control" formControlName="ConfirmPassword">
+      </div>
+
+      <div class="btn-container">
+        <button class="form-btn signup-btn" (click)="registerUser()">Sign Up</button>
+        <button class="form-btn signup-btn" (click)="goToLogin()">Go To Sign In</button>
+      </div>
+
+      <div class="message-container-success" *ngIf="registrationSuccessful">
+        Confirmation email has been sent to your account
+      </div>
+
+      <div class="message-container-failed" *ngIf="registrationFailed && !registrationSuccessful">
+        <p *ngFor="let errorMessage of errorMessages">{{ errorMessage }}</p>
+      </div>
+    </form>
+  </div>
+</div>

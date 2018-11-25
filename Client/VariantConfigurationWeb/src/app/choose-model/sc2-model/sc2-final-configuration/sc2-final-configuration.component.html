@@ -1,0 +1,197 @@
+<div class="final-configuration-container">
+  <div class="bike-price-container">
+    <div>
+      <div class="name-image">
+        <div class="bike-name">
+          <h1>SC2</h1>
+        </div>
+        <div class="bike-image">
+          <img [src]="hostForImg + '/assets/images/SC2001.png'" width="200" height="200">
+        </div>
+        <div class="change-model">
+          <button class="change-model-btn" (click)="changeModel()">Change model</button>
+        </div>
+      </div>
+      <div class="quantity-price">
+        <div class="row-text">
+          <div class="bike-base-price price">
+            Bike Base Price
+          </div>
+          <div class="total-base-price price">
+            Total Base Price
+          </div>
+          <div class="accessories-price price">
+            Accessories
+          </div>
+        </div>
+        <div class="row-change">
+          <div class="warning">
+            {{ quantityErrorMessage }}
+          </div>
+          <div class="quantity">
+            <div class="decrement-bike-quantity decrement" (click)="decrementBikeQuantity()">
+              <i class="fa fa-minus" aria-hidden="true"></i>
+            </div>
+            <div class="bike-quantity">
+              <input type="number" [(ngModel)]="bikeQuantity">
+            </div>
+            <div class="increment-bike-quantity increment" (click)="incrementBikeQuantity()">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="row-prices">
+          <div class="bike-base-price-number number">
+            $ {{ bikePrice.toFixed(2) }}
+          </div>
+          <div class="total-base-price-number number">
+            $ {{ totalBikePrice.toFixed(2) }}
+          </div>
+          <div class="accessories-price-number number">
+            $ {{ totalAccessoriesPrice.toFixed(2) }}
+          </div>
+        </div>
+      </div>
+      <div class="price-discount">
+        <div class="row-text">
+          <div class="total-base-price-accessories price">
+            Total Base Price
+          </div>
+          <div class="discount-price price">
+            Discount (%)
+          </div>
+        </div>
+        <div class="row-change">
+          <div class="warning">
+            {{ discountErrorMessage }}
+          </div>
+          <div class="discount-amount">
+            <input type="number" class="form-control" [(ngModel)]="discountAmount" [ngStyle]="{'border-color': discountErrorMessage ? 'rgb(251, 8, 8)' : '#ced4da'}">
+          </div>
+        </div>
+        <div class="row-prices">
+          <div class="number">
+            $ {{ generalPrice.toFixed(2) }}
+          </div>
+          <div class="number">
+            $ {{ discountedPrice ? discountedPrice.toFixed(2) : '0' }}
+          </div>
+        </div>
+      </div>
+      <div class="net-price">
+        <div class="row-text">
+          <div class="net-price-general">
+            Net Price
+          </div>
+        </div>
+        <div class="row-change">
+
+        </div>
+        <div class="row-prices">
+          <div class="number">
+            $ {{ netPrice.toFixed(2) }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="selected-details-container">
+    <div class="final-configuration">
+      Final Configuration
+    </div>
+    <div class="final-selected-options">
+      <div class="selected-options-header">
+        <div class="selected-options">
+          Selected options
+        </div>
+        <div class="edit-button-container">
+          <button class="edit-btn" (click)="editDetails()">
+            Edit
+          </button>
+        </div>
+      </div>
+      <div class="selected-option" *ngFor="let detail of details">
+        <div class="selected-option-name">
+          {{ detail.detailName.replace('Artwork', '') }}
+        </div>
+        <div class="selected-option-description">
+          {{ detail.detailChoosenOption }}
+        </div>
+        <div class="selected-option-icon">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="selected-option" *ngIf="customArtworks[0].isCustomArtworkSelected">
+        <div class="selected-option-name">
+          FrameForks
+        </div>
+        <div class="selected-option-description">
+          Customer provided art
+        </div>
+        <div class="selected-option-icon">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="selected-option" *ngIf="customArtworks[1].isCustomArtworkSelected">
+        <div class="selected-option-name">
+          BeltGuards
+        </div>
+        <div class="selected-option-description">
+          Customer provided art
+        </div>
+        <div class="selected-option-icon">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="selected-option" *ngIf="customArtworks[2].isCustomArtworkSelected">
+        <div class="selected-option-name">
+          Flywheels
+        </div>
+        <div class="selected-option-description">
+          Customer provided art
+        </div>
+        <div class="selected-option-icon">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div class="final-selected-accessories">
+      <div class="selected-accessories-header">
+        <div class="selected-accessories">
+          Selected accessories
+        </div>
+        <div class="edit-button-container">
+          <button class="edit-btn" (click)="editAccessories()">
+            Edit
+          </button>
+        </div>
+      </div>
+      <div class="selected-accessory" *ngFor="let accessory of accessories">
+        <div class="selected-accessory-name">
+          {{ accessory.accessoryName }}
+        </div>
+        <div class="selected-accessory-quantity">
+          {{ accessory.accessoryQuantity }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="order-information-container">
+  <div class="order-information">
+    <div class="form-group">
+      <label for="">Customer name</label>
+      <input class="form-control" type="text" [(ngModel)]="customerName">
+    </div>
+    <div class="form-group">
+      <label for="">Comment</label>
+      <textarea class="form-control" type="text" [(ngModel)]="comment"></textarea>
+    </div>
+    <div class="btn-container">
+      <button class="save-configuration btn" (click)="saveConfiguration()">Save Configuration</button>
+    </div>
+  </div>
+  <div></div>
+</div>

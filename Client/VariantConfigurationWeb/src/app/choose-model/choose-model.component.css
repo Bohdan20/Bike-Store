@@ -1,0 +1,123 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header > h1 {
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.bikes {
+    margin: 0 auto;
+    border-bottom: .2rem solid rgb(250, 249, 249)
+}
+
+.bikes,
+.bike-features {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.bikes .bike-model,
+.bike-features .description {
+    padding: 1rem;
+    flex: 1;
+}
+
+.bike-features .description {
+    padding: 1rem 6rem;
+}
+
+.bike-name {
+    text-align: center;
+}
+
+.bike-name > h1 {
+    color: rgb(49, 148, 179);
+    font-size: 3em;
+}
+
+.bike-image {
+    display: flex;
+    justify-content: center;
+}
+
+.bike-image > img {
+    height: 200px;
+    width: 200px;
+}
+
+.break-line {
+    height: 2px;
+    background-color: rgb(99, 170, 192);
+}
+
+.standart-features {
+    margin-top: 2rem;
+}
+
+.toggle-features {
+    color: rgb(49, 148, 179);
+}
+
+.toggle-features > span {
+    font-weight: 600;
+}
+
+.features-list {
+    margin-top: 1.4rem;
+}
+
+.features {
+    margin-top: .7rem;
+    border-bottom: .1rem solid rgb(216, 215, 215);
+}
+
+.features > div {
+    position: relative;
+}
+
+.features span {
+    display: inline-block;
+}
+
+.features i,
+.features .option {
+    position: absolute;
+    top: .4rem;
+    right: 0;
+    color:rgb(49, 148, 179);
+}
+
+.features .option {
+    top: 0;
+}
+
+.btn-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-container > .select-bike {
+    padding: 0.9rem 1.8rem !important;
+    color: rgb(49, 148, 179);
+    text-transform: uppercase;
+    background: none;
+    border: .1rem solid rgb(49, 148, 179);
+    font-size: 1.4em !important;
+}
+
+@media only screen and (max-width: 1120px) {
+    .bike-features .description {
+        padding: .5rem 1rem;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .bike-container > .bike-model {
+        margin: .2rem 0;
+    }
+}

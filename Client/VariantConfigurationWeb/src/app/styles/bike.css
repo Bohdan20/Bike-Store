@@ -1,0 +1,100 @@
+.container {
+    width: 84vw;
+    margin: 0 auto;
+}
+
+.container > .logo {
+    height: 14vh;
+    background-color: black;
+    position: relative;
+}
+
+.container > .logo .btn {
+    background: none;
+    color: white;
+    border: .05rem solid white;
+    padding: .4rem .8rem;
+    border-radius: 1rem;
+    position: absolute;
+    font-size: 1em;
+}
+
+.container > .logo > .saved-configurations-btn,
+.container > .logo > .logout-btn,
+.container > .logo > .admin-btn {
+    top: 4.5vh;
+}
+
+.container > .logo > .saved-configurations-btn {
+    right: 9vw;
+}
+
+.container > .logo > .logout-btn {
+    right: 1vw;
+}
+
+.bike-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.fa:hover {
+    cursor: pointer;
+}
+
+.quantity,
+.discount {
+    display: flex;
+    background-color: rgb(247, 245, 245);
+    border: .05rem solid grey;
+    border-radius: 1rem;
+    max-width: 200px;
+}
+
+.decrement,
+.increment {
+    flex: 1;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-container {
+    margin: 1.5rem 0; 
+    text-align: center;
+    color: rgb(49, 148, 179);
+}
+
+.btn-container > .btn {
+    padding: 0.4rem .8rem;
+    color: rgb(49, 148, 179);
+    text-transform: uppercase;
+    background: none;
+    border: .1rem solid rgb(49, 148, 179);
+    font-size: 1em;
+}
+
+@media only screen and (max-width: 1330px) {
+    .container {
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+    .container > .logo > .saved-configurations-btn {
+        right: 11vw;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .container > .logo > .saved-configurations-btn {
+        right: 13vw;
+    }
+}

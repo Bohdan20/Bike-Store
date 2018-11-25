@@ -1,0 +1,20 @@
+<div class="items-container">
+  <div class="items" *ngFor="let item of items">
+    {{ item.ItemType }}
+    <div *ngFor="let subItem of item.Items">
+      <label for="">Description:</label>
+      <input type="text" class="form-control" [(ngModel)]="subItem.Title">
+      <label for="">Base price:</label>
+      <input type="number" class="form-control" [(ngModel)]="subItem.BasePrice">
+      <button class="save-item-btn" (click)="saveItem(subItem.Id, item.ItemType, subItem.BasePrice, subItem.Title)">Save</button>
+    </div>
+  </div>
+  <div class="items" *ngFor="let item of basePrices?.Items">
+    {{ basePrices.Type }}
+    <div>
+      <label for="">{{ item.Type }} price:</label>
+      <input type="number" class="form-control" [(ngModel)]="item.Price">
+      <button class="save-item-btn" (click)="savePrice(item.Id, item.Price)">Save</button>
+    </div>
+  </div>
+</div>

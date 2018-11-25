@@ -1,0 +1,33 @@
+  <div class="saved-configuration-container">
+    <button class="btn" (click)="backToConfigurations()">Back to configurations</button>
+
+    <div class="saved-price-discount">
+      <div class="saved-net-price">Net Price: $ {{ priceDiscount?.netPrice }}</div>
+      <div class="saved-discount">Discount (%): {{ priceDiscount?.discount }}</div>
+    </div>
+
+    <div class="configuration-list">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Sourcing</th>
+              <th>Quantity</th>
+              <th>BasePrice</th>
+              <th>SKU</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of savedConfiguration">
+              <td>{{ item.Title }}</td>
+              <td>{{ item.Sourcing }}</td>
+              <td>{{ item.Quantity }}</td>
+              <td>$ {{ item.BasePrice }}</td>
+              <td>{{ item.SKU }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

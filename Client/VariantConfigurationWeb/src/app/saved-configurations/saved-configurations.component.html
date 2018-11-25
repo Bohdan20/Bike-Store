@@ -1,0 +1,47 @@
+<div class="saved-configuration-container">
+  <div class="saved-configuration">
+    <button class="btn" (click)="chooseModel()">Choose Model</button>
+    <h2>Saved Configurations</h2>
+  </div>
+  <div class="filter-search">
+    <div class="view-configurations">View Configurations
+      <div class="dropdown-content">
+        <div (click)="selectAllConfigurations()">All Configurations</div>
+        <div (click)="selectChekedConfigurations()">Sales Order Checked</div>
+      </div>
+    </div>
+    <input class="form-control search-control" type="text" [(ngModel)]="searchQuery" placeholder="Search by customer">
+  </div>
+  <div class="configuration-list">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th (click)="sortByDate()">Date</th>
+            <th (click)="sortByProperty('ConfigNumber')">Config#</th>
+            <th>Customer</th>
+            <th>Comments</th>
+            <th (click)="sortByProperty('GrossPrice')">Gross Price</th>
+            <th (click)="sortByProperty('Discount')">Discount</th>
+            <th (click)="sortByProperty('NetPrice')">Net Price</th>
+            <th>Sales Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let configuration of configurations | filter: searchQuery">
+            <td>{{ configuration.Timestamp | date:'short' }}</td>
+            <td class="config-number" (click)="showConfig(configuration.ConfigNumber)">{{ configuration.ConfigNumber }}</td>
+            <td>{{ configuration.Customer }}</td>
+            <td>{{ configuration.Comment }}</td>
+            <td>$ {{ configuration.GrossPrice }}</td>
+            <td>{{ configuration.Discount }} %</td>
+            <td>$ {{ configuration.NetPrice }}</td>
+            <td class="sales-order" (click)="createSalesOrder(configuration.ConfigNumber)">
+              <input type="checkbox" [checked]="configuration.CreateSalesOrder" [disabled]="configuration.CreateSalesOrder">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

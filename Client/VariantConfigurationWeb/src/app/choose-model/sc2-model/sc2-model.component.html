@@ -1,0 +1,324 @@
+<div class="bike-container">
+  <div class="sc2-bike">
+    <div class="sc2-content">
+      <div class="name-model">
+        <div class="bike-name">
+          <h1>SC2</h1>
+        </div>
+        <div class="change-model">
+          <button class="change-model-btn" (click)="changeModel()">Change model</button>
+        </div>
+      </div>
+      <div class="bike-image">
+        <img [src]="bikeImageSrc ? bikeImageSrc : hostForImg + '/assets/images/SC2001.png'" width="300" height="300">
+      </div>
+      <div class="bike-price">
+        $ {{ bikePrice.toFixed(2) }}
+      </div>
+
+    </div>
+  </div>
+  <div class="sc2-details" *ngIf="!isPedalTypeChoosen && !isColorChoosen && !isFrameForkChoosen && !isBeltGuardChoosen && !isFlywheelChoosen && !isPowerMeterChoosen && !isHandlebarTypeChoosen">
+    <div class="choose-options">
+      Choose Options
+    </div>
+    <div class="details-options">
+      <div class="option" (click)="chooseColor()">
+        <div class="title">Color</div>
+        <img [src]="hostForImg + '/assets/images/SC2001.png'">
+        <div class="add-detail">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="option" (click)="chooseFrameFork()">
+        <div class="title">Frame Fork</div>
+        <img [src]="hostForImg + '/assets/images/SC2001.png'">
+        <div class="add-detail">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="option" (click)="chooseBeltGuard()">
+        <div class="title">Belt Guard</div>
+        <img [src]="hostForImg + '/assets/images/SC2001.png'">
+        <div class="add-detail">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="option" (click)="chooseFlywheel()" [ngStyle]="{'opacity' : isCustomFlywheelSelected || details?.ArtworkFlywheels[0].DefaultSC2 ? '1' : '0.2'}">
+        <div class="title">Flywheel</div>
+        <img [src]="hostForImg + '/assets/images/SC2001.png'">
+        <div class="add-detail" *ngIf="isCustomFlywheelSelected || details?.ArtworkFlywheels[0].DefaultSC2">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="option" (click)="!details?.PlasticsColors[0].DefaultSC2 ? choosePlasticColor(details?.PlasticsColors[0].Id) : choosePlasticColor(details?.PlasticsColors[1].Id)">
+        <div class="title">{{ details?.PlasticsColors[0].DefaultSC2 ? details?.PlasticsColors[0].Title : details?.PlasticsColors[1].Title }}
+        </div>
+        <img [src]="details?.PlasticsColors[0].DefaultSC2 ? details?.PlasticsColors[0].ImageUrl : details?.PlasticsColors[1].ImageUrl">
+        <div class="add-detail">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="option" (click)="!details?.Seats[0].DefaultSC2 ? chooseSeatType(details?.Seats[0].Id) : chooseSeatType(null)"
+        [ngStyle]="{'opacity' : details?.Seats[0].DefaultSC2 ? '1' : '0.2'}">
+        <div class="title">{{ details?.Seats[0].Title }}</div>
+        <img [src]="details?.Seats[0].DefaultSC2 ? details?.Seats[0].ImageUrl : hostForImg + '/assets/images/noSaddle.JPG'">
+        <div class="add-detail" *ngIf="details?.Seats[0].DefaultSC2">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="option" (click)="chooseHandlebarType()" [ngStyle]="{'opacity' : handlebarTypeId ? '1' : '0.2'}">
+        <div class="title">Handlebar Type</div>
+        <img [src]="hostForImg + '/assets/images/rhythmBarBlack.JPG'">
+        <div class="add-detail" *ngIf="handlebarTypeId">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="option" (click)="choosePedalType()" [ngStyle]="{'opacity' : pedalTypeId ? '1' : '0.2'}">
+        <div class="title">Pedal Type</div>
+        <img [src]="hostForImg + '/assets/images/SP3.JPG'">
+        <div class="add-detail" *ngIf="pedalTypeId">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="option" (click)="choosePowerMeterType()" [ngStyle]="{'opacity' : powerMeterTypeId ? '1' : '0.2'}">
+        <div class="title">Power Meter</div>
+        <img [src]="hostForImg + '/assets/images/PoweMeter.JPG'">
+        <div class="add-detail" *ngIf="powerMeterTypeId">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="option" (click)="isMediaShelf ? '' : !details?.Consoles[0].DefaultSC2 ? chooseConsoleType(details?.Consoles[0].Id) : chooseConsoleType(null)"
+        [ngStyle]="{'opacity' : details?.Consoles[0].DefaultSC2 ? '1' : '0.2'}">
+        <div class="title">{{ isMediaShelf ? 'MediaShelf chosen' : details?.Consoles[0].Title }} </div>
+        <img [src]="hostForImg + '/assets/images/Console.JPG'">
+        <div class="add-detail" *ngIf="details?.Consoles[0].DefaultSC2">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="option" (click)="!details?.SprintShifts[0].DefaultSC2 ? chooseSprintShiftType(details?.SprintShifts[0].Id) : chooseSprintShiftType(details?.SprintShifts[1].Id)"
+        [ngStyle]="{'opacity' : details?.SprintShifts[0].DefaultSC2 ? '1' : '0.2'}">
+        <div class="title">{{ details?.SprintShifts[0].Title }}</div>
+        <img [src]="details?.SprintShifts[0].DefaultSC2 ? hostForImg + '/assets/images/sprintShift.JPG' : hostForImg + '/assets/images/sprintShiftSpacer.JPG'">
+        <div class="add-detail" *ngIf="details?.SprintShifts[0].DefaultSC2">
+          <i class="fa fa-circle-thin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button class="proceed-to-accessories btn" (click)="proceedToAccessories()">Proceed to accessories</button>
+    </div>
+  </div>
+  <div class="choose-color-section" *ngIf="isColorChoosen">
+    <div class="choose-color">
+      Choose Color
+    </div>
+    <div class="standart-color">
+      Standart Color
+      <div [ngStyle]="{'opacity': isCustomColor ? '0.2' : '1'}">
+
+        <div class="color-picker">
+          <img *ngFor="let color of details.PaintColors" [src]="color.ColorImageUrl" class="color" height="20px" (click)="isCustomColor ? '' : selectColor(color.Id)">
+        </div>
+        <div class="color-name-price">
+          <div class="color-name">{{ colorName ? colorName : '000000' }}</div>
+          <div class="color-price">$ {{ customColor ? '10.00' : '0.00'}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="custom-color">
+      <input type="checkbox" name="" [(ngModel)]="isCustomColor" (click)="addRemoveColorPrice(!isCustomColor)">
+      <label for="">Custom Color</label>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="customColor" [disabled]="!isCustomColor" [ngStyle]="{'opacity': !isCustomColor ? '0.2' : '1'}" placeholder="Custom color">
+      </div>
+    </div>
+    <div class="accept-decline">
+      <div class="decline">
+        <i class="fa fa-times fa-2x" aria-hidden="true" (click)="declineColor()"></i>
+      </div>
+      <div class="accept">
+        <i class="fa fa-check fa-2x" aria-hidden="true" (click)="acceptColor()"></i>
+      </div>
+    </div>
+  </div>
+  <div class="frame-fork-section" *ngIf="isFrameForkChoosen">
+    <div class="frame-fork-type">
+      Frame Fork
+    </div>
+    <div class="choose-frame-fork-type">
+      <div class="option" *ngFor="let frameFork of details.ArtworkFrameForks; let i = index;" (click)="selectStandartFrameFork(frameFork.Id, i)"
+        [ngStyle]="{'opacity': frameFork.DefaultSC2 ? '1' : '0.2'}">
+        <div class="title">{{ frameFork.Title }}</div>
+        <img [src]="hostForImg + '/assets/images/SC2001.png'">
+      </div>
+      <div class="option" (click)="selectCustomFrameFork()" [ngStyle]="{'opacity': isCustomFrameForkSelected ? '1' : '0.2'}">
+        <div class="title">Customer Provided Art</div>
+        <img [src]="hostForImg + '/assets/images/SC2001.png'">
+      </div>
+    </div>
+    <div class="custom-design" *ngIf="isCustomFrameForkSelected">
+      <div class="select-file">
+        <label for="uploadFrameFork" class="select-your-file">Select your file</label>
+        <input type="file" name="" id="uploadFrameFork" (change)="uploadFrameForkImage($event)" accept=".png, .jpg, .jpeg, .bmp">
+        <div class="selected-file" *ngIf="frameForkImageName">
+          {{ frameForkImageName }}
+        </div>
+      </div>
+      <div class="add-comment form-group">
+        <input type="text" class="form-control" placeholder="Add comment..." [(ngModel)]="artworkFrameForkColor">
+      </div>
+    </div>
+    <div class="accept-decline">
+      <div class="decline">
+        <i class="fa fa-times fa-2x" aria-hidden="true" (click)="declineFrameForkType()"></i>
+      </div>
+      <div class="accept">
+        <i class="fa fa-check fa-2x" aria-hidden="true" (click)="acceptFrameForkType()"></i>
+      </div>
+    </div>
+  </div>
+  <div class="belt-guard-section" *ngIf="isBeltGuardChoosen">
+    <div class="belt-guard-type">
+      Belt Guard
+    </div>
+    <div class="choose-belt-guard-type">
+      <div class="option" *ngFor="let beltGuard of details.ArtworkBeltGuards; let i = index;" (click)="selectStandartBeltGuard(beltGuard.Id, i)"
+        [ngStyle]="{'opacity': beltGuard.DefaultSC2 ? '1' : '0.2'}">
+        <div class="title">{{ beltGuard.Title }}</div>
+        <img [src]="hostForImg + '/assets/images/SC2001.png'">
+      </div>
+      <div class="option" (click)="selectCustomBeltGuard()" [ngStyle]="{'opacity': isCustomBeltGuardSelected ? '1' : '0.2'}">
+        <div class="title">Customer Provided Art</div>
+        <img [src]="hostForImg + '/assets/images/SC2001.png'">
+      </div>
+    </div>
+    <div class="custom-design" *ngIf="isCustomBeltGuardSelected">
+      <div class="select-file">
+        <label for="uploadBeltGuard" class="select-your-file">Select your file</label>
+        <input type="file" name="" id="uploadBeltGuard" (change)="uploadBeltGuardImage($event)" accept=".png, .jpg, .jpeg, .bmp">
+        <div class="selected-file" *ngIf="beltGuardImageName">
+          {{ beltGuardImageName }}
+        </div>
+      </div>
+      <div class="add-comment form-group">
+        <input type="text" class="form-control" placeholder="Add comment..." [(ngModel)]="artworkBeltGuardColor">
+      </div>
+    </div>
+    <div class="accept-decline">
+      <div class="decline">
+        <i class="fa fa-times fa-2x" aria-hidden="true" (click)="declineBeltGuardType()"></i>
+      </div>
+      <div class="accept">
+        <i class="fa fa-check fa-2x" aria-hidden="true" (click)="acceptBeltGuardType()"></i>
+      </div>
+    </div>
+  </div>
+  <div class="flywheel-section" *ngIf="isFlywheelChoosen">
+    <div class="flywheel-type">
+      Artwork Flywheel
+    </div>
+    <div class="choose-flywheel-type">
+      <div class="option" *ngFor="let flywheel of details.ArtworkFlywheels; let i = index;" (click)="selectStandartFlywheel(flywheel.Id, i)"
+        [ngStyle]="{'opacity': flywheel.DefaultSC2 ? '1' : '0.2'}">
+        <div class="title">{{ flywheel.Title }}</div>
+        <img [src]="hostForImg + '/assets/images/SC2001.png'">
+      </div>
+      <div class="option" (click)="selectCustomFlywheel()" [ngStyle]="{'opacity': isCustomFlywheelSelected ? '1' : '0.2'}">
+        <div class="title">Customer Provided Art</div>
+        <img [src]="hostForImg + '/assets/images/SC2001.png'">
+      </div>
+    </div>
+    <div class="custom-design" *ngIf="isCustomFlywheelSelected">
+      <div class="select-file">
+        <label for="uploadFlywheel" class="select-your-file">Select your file</label>
+        <input type="file" name="" id="uploadFlywheel" (change)="uploadFlywheelImage($event)" accept=".png, .jpg, .jpeg, .bmp">
+        <div class="selected-file" *ngIf="flywheelImageName">
+          {{ flywheelImageName }}
+        </div>
+      </div>
+      <div class="add-comment form-group">
+        <input type="text" class="form-control" placeholder="Add comment..." [(ngModel)]="artworkFlywheelColor">
+      </div>
+    </div>
+    <div class="accept-decline">
+      <div class="decline">
+        <i class="fa fa-times fa-2x" aria-hidden="true" (click)="declineFlywheelType()"></i>
+      </div>
+      <div class="accept">
+        <i class="fa fa-check fa-2x" aria-hidden="true" (click)="acceptFlywheelType()"></i>
+      </div>
+    </div>
+  </div>
+  <div class="handlebar-type-section" *ngIf="isHandlebarTypeChoosen">
+    <div class="handlebar-type">
+      Handlebar Type
+    </div>
+    <div class="choose-handlebar-type">
+      <div class="option" *ngFor="let handlebar of details.Handlebars; let i = index;" (click)="selectHandlebarType(handlebar.Id, handlebar.BasePrice, i)"
+        [ngStyle]="{'opacity': handlebar.DefaultSC2 ? '1' : '0.2'}">
+        <div class="title">{{ handlebar.Title }}</div>
+        <img [src]="handlebar.ImageUrl">
+      </div>
+    </div>
+    <div class="accept-decline">
+      <div class="decline">
+        <i class="fa fa-times fa-2x" aria-hidden="true" (click)="declineHandlebarType()"></i>
+      </div>
+      <div class="accept">
+        <i class="fa fa-check fa-2x" aria-hidden="true" (click)="acceptHandlebarType()"></i>
+      </div>
+    </div>
+  </div>
+  <div class="pedal-type-section" *ngIf="isPedalTypeChoosen">
+    <div class="pedal-type">
+      Pedal Type
+    </div>
+    <div class="choose-pedal-type">
+      <div class="option" *ngFor="let pedal of details.Pedals; let i = index;" (click)="selectPedalType(pedal.Id, pedal.BasePrice, i)"
+        [ngStyle]="{'opacity': pedal.DefaultSC2 ? '1' : '0.2'}">
+        <div class="title">{{ pedal.Title }}</div>
+        <img [src]="pedal.ImageUrl">
+      </div>
+    </div>
+    <div class="accept-decline">
+      <div class="decline">
+        <i class="fa fa-times fa-2x" aria-hidden="true" (click)="declinePedalType()"></i>
+      </div>
+      <div class="accept">
+        <i class="fa fa-check fa-2x" aria-hidden="true" (click)="acceptPedalType()"></i>
+      </div>
+    </div>
+  </div>
+  <div class="power-meter-section" *ngIf="isPowerMeterChoosen">
+    <div class="power-meter-type">
+      Power Meter
+    </div>
+    <div class="choose-power-meter-type">
+      <div class="option" *ngFor="let meter of details.PowerMeters; let i = index;" (click)="selectPowerMeterType(meter.Id, meter.BasePrice, i)"
+        [ngStyle]="{'opacity': meter.DefaultSC2 ? '1' : '0.2'}">
+        <div class="title">{{ meter.Title }}</div>
+        <img [src]="meter.ImageUrl">
+      </div>
+    </div>
+    <div class="accept-decline">
+      <div class="decline">
+        <i class="fa fa-times fa-2x" aria-hidden="true" (click)="declinePowerMeter()"></i>
+      </div>
+      <div class="accept">
+        <i class="fa fa-check fa-2x" aria-hidden="true" (click)="acceptPowerMeter()"></i>
+      </div>
+    </div>
+  </div>
+</div>

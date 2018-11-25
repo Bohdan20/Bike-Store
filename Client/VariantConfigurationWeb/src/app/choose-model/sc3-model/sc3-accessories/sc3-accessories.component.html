@@ -1,0 +1,377 @@
+<div class="bike-container">
+  <div class="sc2-bike">
+    <div class="sc2-content">
+      <div class="back-to-options" (click)="backToOptions()">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        <span>Back to options</span>
+      </div>
+      <div class="name-model">
+        <div class="bike-name">
+          <h1>SC3</h1>
+        </div>
+        <div class="change-model">
+          <button class="change-model-btn btn" (click)="changeModel()">Change model</button>
+        </div>
+      </div>
+      <div class="bike-image">
+        <img [src]="hostForImg + '/assets/images/SC2001.png'" width="300" height="300">
+      </div>
+      <div class="price">
+        <div class="total-accessories">
+          Total Accessories Price
+        </div>
+        <div class="bike-price">
+          $ {{ totalAccessoriesPrice.toFixed(2) }}
+        </div>
+        <div class="warning">
+          Accessories ship independently from bikes
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sc2-details">
+    <div class="choose-options">
+      Choose Accessories
+      
+    </div>
+    <div class="select-accessories">
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/BYODmount.JPG'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.TabletHolders[0].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementTabletHolderQuantity()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.tabletHolderQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementTabletHolderQuantity()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.TabletHolders[0].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="warning" *ngIf="accessoryQuantity.aerobarQuantity">
+            You have already chosen aerobar
+          </div>
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/Aerobar1.JPG'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.Aerobars[0].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementAerobarQuantity()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.aerobarQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementAerobarQuantity()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.Aerobars[0].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        <div class="warning" *ngIf="accessoryQuantity.tabletHolderQuantity || accessoryQuantity.mediaShelfQuantity">
+          You have already chosen tablet holder or media shelf
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/mediaTray1.JPG'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.MediaShelves[0].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementMediaShelfQuantity()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.mediaShelfQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementMediaShelfQuantity()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.MediaShelves[0].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="warning" *ngIf="accessoryQuantity.aerobarQuantity || accessoryQuantity.phoneHolderQuantity || isConsoleChoosen">
+            You have already chosen aerobar or phone holder or console
+          </div>
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/dumbbellHolder.JPG'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>Stages Dumbbell Holder</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementStagesDumbbellHolderQuantity()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.stagesDumbbellHolderQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementStagesDumbbellHolderQuantity()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.StagesDumbbellHolders[0].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/SC2001.png'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.HandlebarPosts[0].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementHandlebarPostQuantity()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.handlebarPostQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementHandlebarPostQuantity()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.HandlebarPosts[0].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/SC2001.png'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.SeatPosts[0].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementSeatPostQuantity()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.seatPostQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementSeatPostQuantity()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.SeatPosts[0].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/phoneShelf.JPG'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.PhoneHolders[0].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementPhoneHolderQuantity()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.phoneHolderQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementPhoneHolderQuantity()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.PhoneHolders[0].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="warning" *ngIf="accessoryQuantity.mediaShelfQuantity">
+            You have already chosen media shelf
+          </div>
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/SC2001.png'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.StagesBikeNumberPlates[0].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementOneToSixty()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.sbnpOneToSixtyQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementOneToSixty()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.StagesBikeNumberPlates[0].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="warning" *ngIf="accessoryQuantity.sbnpOneToEightyQuantity">
+          You have already chosen 1-80 numbers
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/SC2001.png'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.StagesBikeNumberPlates[1].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementSixtyToHundred()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.sbnpSixtyOneToHundredQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementSixtyToHundred()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.StagesBikeNumberPlates[1].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="warning" *ngIf="accessoryQuantity.sbnpOneToEightyQuantity">
+          You have already chosen 1-80 numbers
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/SC2001.png'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.StagesBikeNumberPlates[2].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementOneToEighty()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.sbnpOneToEightyQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementOneToEighty()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.StagesBikeNumberPlates[2].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="warning" *ngIf="accessoryQuantity.sbnpOneToSixtyQuantity || accessoryQuantity.sbnpSixtyOneToHundredQuantity">
+          You have already chosen 1-60 or 61-100 numbers
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/SC2001.png'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.StagesBikeNumberPlates[3].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementStagesLogo()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.sbnpOneStagesLogoQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementStagesLogo()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.StagesBikeNumberPlates[3].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accessory">
+          <div class="accessory-image">
+            <img [src]="hostForImg + '/assets/images/SC2001.png'" width="100" height="100">
+          </div>
+          <div class="accessory-details">
+            <div class="accesory-quantity-price">
+              <div class="accessory-name">
+                <span>{{ accesories?.StagesBikeNumberPlates[4].Title }}</span>
+              </div>
+              <div class="quantity">
+                <div class="decrement-accessory-quantity decrement" (click)="decrementOneToThirty()">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="accessory-quantity">
+                  <input type="number" [(ngModel)]="accessoryQuantity.sbnpOneToThirtyQuantity">
+                </div>
+                <div class="increment-accessory-quantity increment" (click)="incrementOneToThirty()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="total-price">
+                <div class="total-accessory-price">$ {{ accesories?.StagesBikeNumberPlates[4].BasePrice }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="btn-container">
+      <button class="final-configuration btn" (click)="finalConfigurationSC3()">Final Configuration SC3</button>
+    </div>
+  </div>
+</div>

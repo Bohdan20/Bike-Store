@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="logo" *ngIf="showNavbar">
+    <button class="admin-btn btn" (click)="goToAdmin()">Admin</button>
+    <button class="saved-configurations-btn btn" (click)="savedConfigurations()">Saved Configurations</button>
+    <button class="logout-btn btn" (click)="logout()">Logout</button>
+  </div>
+  <router-outlet></router-outlet>
+</div>

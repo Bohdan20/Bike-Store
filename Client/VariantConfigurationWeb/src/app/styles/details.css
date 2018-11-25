@@ -1,0 +1,347 @@
+.sc2-bike {
+    flex: 2.5;
+    background-color: rgb(250, 249, 249);
+}
+
+.sc2-bike > .sc2-content {
+    margin: 3rem 8rem;
+}
+
+.sc2-details,
+.pedal-type-section,
+.handlebar-type-section,
+.choose-color-section,
+.frame-fork-section,
+.belt-guard-section,
+.flywheel-section,
+.power-meter-section {
+    flex: 1;
+    flex-grow: 1.3;
+}
+
+.name-model {
+    display: flex;
+}
+
+.bike-name,
+.change-model {
+    flex: 1;
+}
+
+.bike-name > h1 {
+    color: rgb(82, 191, 224);
+    font-size: 3em;
+    margin-bottom: .2rem;
+    margin-left: 1.5rem;
+}
+
+.change-model {
+    position: relative;
+}
+
+.change-model-btn {
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+}
+
+.change-model-btn,
+.select-your-file {
+    background: none;
+    padding: .5rem 1rem;
+    color: rgb(82, 191, 224);
+    border: .05rem solid rgb(82, 191, 224);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.select-your-file {
+    padding: .1rem 1rem;
+}
+
+.change-model-btn:focus {
+    outline: none;
+} 
+
+.bike-image {
+    display: flex;
+    justify-content: center;
+}
+
+.bike-image > img {
+    height: 100%;
+    max-width: 100%;
+}
+
+.bike-price {
+    text-align: center;
+    font-size: 2.4em;
+}
+
+.bike-quantity {
+    text-align: center;
+    padding: 1rem 4rem;
+}
+
+.change-quantity {
+    display: flex;
+}
+
+.change-quantity div {
+    flex: 1;
+}
+
+.change-quantity .quantity {
+    flex: 3;
+    max-width: 200px;
+    min-width: 200px;
+}
+
+.quantity > .bike-quantity-number {
+    flex: 2.4;
+}
+
+.quantity > .decrement-bike-quantity,
+.quantity > .increment-bike-quantity {
+    flex: 1;
+    cursor: pointer;
+}
+
+.bike-quantity-number {
+    text-align: center;
+    border-right: .05rem solid grey;
+    border-left: .05rem solid grey;
+}
+
+.quantity i {
+    color: rgb(223, 205, 205);
+}
+
+.choose-options,
+.choose-color,
+.frame-fork-type,
+.belt-guard-type, 
+.pedal-type,
+.handlebar-type,
+.flywheel-type,
+.power-meter-type {
+    padding: 1rem 0;
+    text-align: center;
+    color: rgb(82, 191, 224);
+    font-size: 1.2em;
+    font-weight: 500;
+    border-bottom: .2rem solid rgb(250, 249, 249);
+}
+
+.details-options,
+.choose-pedal-type,
+.choose-handlebar-type,
+.choose-frame-fork-type,
+.choose-belt-guard-type,
+.choose-flywheel-type,
+.choose-power-meter-type {
+    padding: 1rem .2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+    overflow: auto;
+}
+
+.choose-frame-fork-type,
+.choose-belt-guard-type,
+.choose-flywheel-type,
+.choose-handlebar-type {
+    height: auto;
+}
+
+.option {
+    margin: .2rem 0;
+    border: .1rem solid gray;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.option .title {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-weight: 500;
+    color: rgb(10, 9, 9);
+}
+
+.option > img {
+    height: 8.8rem;
+    width: 8.8rem;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.add-detail .fa-circle-thin {
+    position: absolute;
+    left: .5rem;
+    bottom: .4rem;
+}
+
+.add-detail .fa-check {
+    position: absolute;
+    left: .9rem;
+    bottom: 1rem;
+    cursor: pointer;
+}
+
+.add-detail {
+    color: green;
+}
+
+.accept-decline {
+    border-top: .2rem solid rgb(250, 249, 249);
+    display: flex;
+    padding: 1rem 0;
+
+}
+
+.accept-decline .accept,
+.accept-decline .decline {
+    flex: 1;
+    text-align: center;
+}
+
+.accept-decline .accept {
+    color: green;
+}
+
+.accept-decline .decline {
+    color: red;
+}
+
+.standart-color {
+    padding: 1rem 2rem;
+    color: rgb(82, 191, 224);
+    border-bottom: .2rem solid rgb(250, 249, 249);
+}
+
+.standart-color .color-picker {
+    margin-top: 1rem;
+    border: .1rem solid grey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.color-picker .color {
+    flex: 1;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.color-name-price {
+    margin-top: 1rem;
+}
+
+.color-name-price .color-name,
+.color-name-price .color-price {
+    display: inline-block;
+    border: .05rem solid grey;
+    border-radius: .4rem;
+    padding: 0 .4rem;
+}
+
+.color-name-price .color-name {
+    margin-right: .5rem;
+}
+
+.custom-color {
+    padding: 1rem 2rem;
+}
+
+.custom-color label {
+    color: rgb(82, 191, 224);
+}
+
+.form-group {
+    padding: 4px 0;
+    box-sizing: border-box;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-group input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.25);
+}
+
+::-webkit-input-placeholder {
+    opacity: 0.5;
+  }
+
+.custom-design {
+    padding: 1rem 1.5rem;
+    color: rgb(82, 191, 224);
+}
+
+.custom-design .select-file {
+    margin: .5rem 0;
+    text-align: center;
+}
+
+.custom-design .select-file input {
+    display: none;
+}
+
+.selected-file {
+    word-wrap:break-word;
+    max-width: 15.2rem;
+    margin: 0 auto;
+}
+
+.add-comment > input::placeholder {
+    color: #9aa4ad;
+    font-size: .8em;
+}
+
+@media only screen and (max-width: 768px) {
+    .bike-image > img {
+        height: 16rem;
+        width: 16rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .sc2-bike {
+        flex: 2;
+    }
+    
+    .sc2-details,
+    .pedal-type-section,
+    .handlebar-type-section,
+    .choose-color-section,
+    .frame-fork-section,
+    .belt-guard-section,
+    .flywheel-section,
+    .power-meter-section {
+        flex: 1;
+        flex-grow: 1.5;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .sc2-bike > .sc2-content {
+        margin: 2rem 4rem;
+    }
+}

@@ -1,0 +1,234 @@
+.sc2-bike {
+    flex: 2.8;
+    background-color: rgb(250, 249, 249);
+}
+
+.sc2-bike > .sc2-content {
+    margin: 1rem 10rem;
+}
+
+.sc2-details {
+    flex: 1;
+}
+
+.back-to-options i {
+    color: rgb(82, 191, 224);
+    font-size: 28px;
+    vertical-align: sub;
+}
+
+.back-to-options span {
+    margin-left: .5rem;
+}
+
+.name-model {
+    display: flex;
+}
+
+.bike-name,
+.change-model {
+    flex: 1;
+}
+
+.bike-name > h1 {
+    color: rgb(82, 191, 224);
+    font-size: 3em;
+    margin-bottom: .2rem;
+    margin-left: 1.5rem;
+}
+
+.change-model {
+    position: relative;
+}
+
+.change-model-btn {
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+    background: none;
+    padding: .5rem 1rem;
+    color: rgb(82, 191, 224);
+    border: .05rem solid rgb(82, 191, 224);
+    border-radius: 1rem;
+}
+
+.bike-image {
+    display: flex;
+    justify-content: center;
+}
+
+.bike-image > img {
+    height: 100%;
+    max-width: 100%;
+}
+
+.price {
+    margin: 0 auto;
+}
+
+.total-accessories {
+    text-align: center;
+}
+
+.bike-price {
+    font-size: 1.6em;
+}
+
+.bike-price,
+.warning {
+    text-align: center;
+}
+
+.warning {
+    font-size: .8em;
+    background-color: rgb(221, 221, 221);
+    color: black;
+    margin-top: 1rem;
+    padding: .6rem .1rem;
+}
+
+.choose-options {
+    padding: 1rem 0;
+    text-align: center;
+    color: rgb(82, 191, 224);
+    font-size: 1.2em;
+    font-weight: 500;
+    border-bottom: .25rem solid rgb(250, 249, 249);
+}
+
+.select-accessories {
+    height: 70vh;
+    overflow: auto;
+}
+
+.accessory {
+    padding: 1rem;
+    border-top: .25rem solid rgb(250, 249, 249);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.accessory:first-child {
+    border-top: none;
+}
+
+.accessory-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.accessory-image {
+    flex: 1;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.accessory-image > img {
+    vertical-align: -webkit-baseline-middle;
+}
+
+.accesory-quantity-price {
+    flex: 1;
+    padding-right: .3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.accessory-name,
+.total-accessory-price
+ {
+    text-align: right;
+}
+
+.quantity .accessory-quantity {
+    max-width: 100px;
+    min-width: 70px;
+    display: inherit;
+}
+
+.quantity .accessory-quantity input {
+    max-width: 100px;
+    min-width: 50px;
+    text-align: center;
+    border: none;
+    background: transparent;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.accessory-name {
+    flex: 2;
+}
+
+.quantity-container {
+    text-align: center;
+}
+
+.quantity,
+.total-price {
+    flex: 1;
+}
+
+.accessory-quantity {
+    flex: 2.4;
+}
+
+.quantity > .decrement-accessory-quantity,
+.quantity > .increment-accessory-quantity {
+    flex: 1;
+    cursor: pointer;
+}
+
+.accessory-quantity
+ {
+    text-align: center;
+    border-right: .05rem solid grey;
+    border-left: .05rem solid grey;
+}
+
+.select-accessories .warning {
+    margin-top: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(221, 221, 221);
+    color: black;
+}
+
+.quantity i {
+    color: rgb(223, 205, 205);
+} 
+
+.btn-container {
+    margin: 1.5rem 0; 
+    text-align: center;
+    color: rgb(49, 148, 179);
+}
+
+.btn-container > .save-configuration {
+    padding: 0.4rem .8rem;
+    color: rgb(49, 148, 179);
+    text-transform: uppercase;
+    background: none;
+    border: .1rem solid rgb(49, 148, 179);
+    font-size: 1em;
+}
+
+@media only screen and (max-width: 1024px) {
+    .bike-container {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1350px) {
+    .sc2-bike {
+        flex: 2;
+    }
+
+    .sc2-bike >.sc2-content {
+        margin: 1rem 5rem;
+    }
+}

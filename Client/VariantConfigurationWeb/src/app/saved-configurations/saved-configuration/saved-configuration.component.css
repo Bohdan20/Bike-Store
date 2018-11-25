@@ -1,0 +1,103 @@
+.saved-configuration-container {
+    padding: 1rem 4rem;
+}
+
+.saved-configuration {
+    text-align: center;
+}
+
+.saved-configuration > h2 {
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.saved-price-discount div {
+    padding: .5rem 0;
+}
+
+.saved-price-discount .saved-net-price {
+    margin-top: 1rem;
+}
+
+.view-configurations-container {
+    display: inline-block;
+}
+
+.view-configurations-container i {
+    color: rgb(82, 191, 224);
+    margin-left: .2rem;
+    vertical-align: middle;
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content div:hover {
+    background-color: #e2e2e2;
+}
+
+.configuration-list {
+    margin-top: 1.5rem;
+}
+
+table {
+    width: 100%;
+}
+
+table > thead {
+    color: rgb(82, 191, 224);
+    padding: .25rem;
+}
+
+table > thead th {
+    border-top: .125rem solid rgb(250, 249, 249);
+    border-bottom: .125rem solid rgb(250, 249, 249);
+    width: 130px;
+    word-wrap: break-word;
+}
+
+table > thead th:last-child {
+    text-align: center;
+}
+
+table > tbody td:last-child {
+    text-align: center;
+}
+
+table tr td {
+    padding: .8rem 0;
+}
+
+table tr td.config-number,
+table tr td.sales-order,
+table tr td.sales-order input {
+    cursor: pointer;
+}
+
+.btn {
+    padding: 0.4rem .8rem;
+    color: rgb(49, 148, 179);
+    text-transform: uppercase;
+    background: none;
+    border: .1rem solid rgb(49, 148, 179);
+    font-size: 1em;
+}
+
+@media only screen and (max-width: 1024px) {
+    .saved-configuration-container {
+        padding: 1rem 0;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="container" [ngStyle]="{'background-image': backImgSrc}">
+  <div>
+    <form [formGroup]="loginForm">
+      <p>Sign In</p>
+      <div class="form-group">
+        <label for="userName">User Name:</label>
+        <input type="text" class="form-control" formControlName="UserName">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" formControlName="Password">
+      </div>
+      <button class="form-btn signin-btn" (click)="login()">Sign In</button>
+      <a [routerLink]="['/forgot-password']">Forgot Password?</a>
+      <button class="form-btn signup-btn" (click)="goToSignUpPage()">Sign Up</button>
+      <div class="message-container-failed" *ngIf="isLoginFailed">
+        {{ loginError }}
+      </div>
+    </form>
+  </div>
+</div>

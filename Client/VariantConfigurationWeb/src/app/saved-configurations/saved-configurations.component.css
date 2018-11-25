@@ -1,0 +1,141 @@
+.saved-configuration-container {
+    padding: 1rem 4rem;
+}
+
+.saved-configuration {
+    text-align: center;
+}
+
+.btn {
+    padding: 0.4rem .8rem;
+    color: rgb(49, 148, 179);
+    text-transform: uppercase;
+    background: none;
+    border: .1rem solid rgb(49, 148, 179);
+    font-size: 1em;
+}
+
+.saved-configuration > h2 {
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.filter-search {
+    position: relative;
+}
+
+.search-control {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.form-control {
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.view-configurations-container {
+    display: inline-block;
+}
+
+.view-configurations-container i {
+    color: rgb(82, 191, 224);
+    margin-left: .2rem;
+    vertical-align: middle;
+}
+
+.view-configurations {
+    color: rgb(82, 191, 224);
+    cursor: pointer;
+}
+
+.view-configurations {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content div:hover {background-color: #f1f1f1}
+
+.view-configurations:hover .dropdown-content {
+    display: block;
+}
+
+.view-configurations .dropbtn:hover {
+    background-color: #3e8e41;
+}
+
+.configuration-list {
+    margin-top: 1.5rem;
+}
+
+table {
+    width: 100%;
+}
+
+table > thead {
+    color: rgb(82, 191, 224);
+    padding: .25rem;
+}
+
+table > thead th {
+    border-top: .125rem solid rgb(250, 249, 249);
+    border-bottom: .125rem solid rgb(250, 249, 249);
+    width: 130px;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+table > thead th:nth-child(3),
+table > thead th:nth-child(4) {
+    cursor: text;
+}
+
+table > thead th:last-child {
+    text-align: center;
+    cursor: text;
+}
+
+table > tbody td:last-child {
+    text-align: center;
+}
+
+table tr td {
+    padding: .8rem 0;
+}
+
+table tr td.config-number,
+table tr td.sales-order,
+table tr td.sales-order input {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+    .saved-configuration-container {
+        padding: 1rem 0;
+    }
+}
