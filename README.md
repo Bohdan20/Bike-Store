@@ -16,6 +16,10 @@ Here is a part of database model for user Identity:
 ![](https://github.com/Bohdan20/BookStore/blob/master/Images/IdentityModel.PNG)
 
 ### Telemetry results are from Azure Application Insights Application:
+У вікні пошуку Application Insights відображаються події, що були зареєстровані.
 
-![](https://github.com/Bohdan20/BookStore/blob/master/Images/generalTelemetry.PNG)
+![](https://github.com/Bohdan20/BookStore/blob/master/Images/general.PNG)
 
+Вибравши будь-яку подію, можна детально переглянути її властивості у табах Request Details та Track Operation:
+
+![](https://github.com/Bohdan20/BookStore/blob/master/Images/trackOperation.PNG)
