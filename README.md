@@ -7,7 +7,7 @@ Angular		                 &	                	ASP.NET Web API
 
 ### Application architecture was designed according to SOLID/GRASP.
 ### Use case diagram
-![](https://github.com/Bohdan20/BookStore/blob/master/Images/usecase_diagram.png)
+![](https://github.com/Bohdan20/BookStore/blob/master/Images/use_case.png)
 
 ### Storage: MSSQL
 
